@@ -55,7 +55,6 @@ func chat(ctx context.Context, conv []openaigo.ChatMessage) ([]openaigo.ChatMess
 	})
 
 	switch {
-	case strings.HasSuffix(answer, "?"):
 	default:
 		fmt.Print("\nYou> ")
 		r := bufio.NewReader(os.Stdin)
@@ -72,7 +71,6 @@ func chat(ctx context.Context, conv []openaigo.ChatMessage) ([]openaigo.ChatMess
 		cleanup(nil, msg, dch)
 		return chat(ctx, conv)
 	}
-	return conv, err
 }
 
 func shouldEndConversationFromUserSide(s string) bool {
